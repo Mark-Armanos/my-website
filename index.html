@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع التقارير اليومية</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #ffc107;
+        }
+
+        main {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .welcome-section {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .welcome-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .welcome-section p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* استجابة للهواتف المحمولة */
+        @media (max-width: 768px) {
+            header nav ul li {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>موقع التقارير اليومية</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">الرئيسية</a></li>
+                <li><a href="upload_report.html">تنزيل التقارير</a></li>
+                <li><a href="admins.html">قائمة المشرفين</a></li>
+                <li><a href="members.html">قائمة الأعضاء</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <h2>مرحبًا بك في موقع التقارير اليومية!</h2>
+            <p>هدفنا هو تسهيل عملية إدارة ورفع التقارير اليومية. من خلال هذا الموقع، يمكنك رفع التقارير الخاصة بالصور والفيديوهات بكل سهولة، كما يمكنك متابعة التقارير السابقة.</p>
+            <p>استمتع باستخدام الموقع ورفع التقارير في أي وقت تود!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 موقع التقارير اليومية</p>
+    </footer>
+</body>
+</html>

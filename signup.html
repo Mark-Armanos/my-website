@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #ffc107;
+        }
+
+        main {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .signup-form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .signup-form h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .signup-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .signup-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .signup-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .signup-form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* تنسيق الأيقونة لعرض كلمة المرور */
+        .password-container {
+            position: relative;
+        }
+
+        .password-container input {
+            padding-right: 40px; /* المسافة للأيقونة */
+        }
+
+        .password-container span {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>موقع التقارير اليومية</h1>
+        <nav>
+            <ul>
+                <li><a href="signup.html">إنشاء حساب</a></li>
+                <li><a href="login.html">تسجيل الدخول</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="signup-form">
+            <h2>إنشاء حساب</h2>
+
+            <!-- رسالة الخطأ في حال كانت كلمات المرور غير متطابقة -->
+            <div class="error-message" id="error-message">
+                عذراً، كلمة المرور غير متطابقة.
+            </div>
+
+            <!-- رسالة النجاح عند إنشاء الحساب -->
+            <div class="success-message" id="success-message">
+                تم إنشاء الحساب بنجاح!
+            </div>
+
+            <form id="signupForm">
+                <label for="username">اسم المستخدم</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="email">البريد الإلكتروني</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">كلمة المرور</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" required>
+                    <span id="eyeIcon" onclick="togglePasswordVisibility()">👁️</span>
+                </div>
+
+                <label for="confirm-password">تأكيد كلمة المرور</label>
+                <div class="password-container">
+                    <input type="password" id="confirm-password" name="confirm-password" required>
+                    <span id="confirmEyeIcon" onclick="toggleConfirmPasswordVisibility()">👁️</span>
+                </div>
+
+                <button type="submit">إنشاء الحساب</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 موقع التقارير اليومية</p>
+    </footer>
+
+    <script>
+        // إظهار أو إخفاء كلمة المرور
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById('password');
+            var eyeIcon = document.getElementById('eyeIcon');
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                eyeIcon.innerText = "🙈"; // تغيير الأيقونة إلى قرد
+            } else {
+                passwordField.type = "password";
+                eyeIcon.innerText = "👁️"; // إعادة الأيقونة إلى عين
+            }
+        }
+
+        // إظهار أو إخفاء كلمة المرور
+        function toggleConfirmPasswordVisibility() {
+            var confirmPasswordField = document.getElementById('confirm-password');
+            var confirmEyeIcon = document.getElementById('confirmEyeIcon');
+            if (confirmPasswordField.type === "password") {
+                confirmPasswordField.type = "text";
+                confirmEyeIcon.innerText = "🙈"; // تغيير الأيقونة إلى قرد
+            } else {
+                confirmPasswordField.type = "password";
+                confirmEyeIcon.innerText = "👁️"; // إعادة الأيقونة إلى عين
+            }
+        }
+
+        // عملية تسجيل الحساب
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // التحقق من تطابق كلمات المرور
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password !== confirmPassword) {
+                // إذا كانت كلمات المرور غير متطابقة
+                document.getElementById('error-message').style.display = "block";
+                setTimeout(function() {
+                    document.getElementById('error-message').style.display = "none";
+                }, 2000); // إخفاء الرسالة بعد 2 ثانية
+            } else {
+                // إذا كانت كلمات المرور متطابقة
+                // إظهار رسالة النجاح
+                document.getElementById('success-message').style.display = "block";
+                setTimeout(function() {
+                    document.getElementById('success-message').style.display = "none";
+                    // بعد 2 ثانية، الانتقال إلى صفحة تسجيل الدخول
+                    window.location.href = "login.html"; // استبدل بـ URL صفحة تسجيل الدخول
+                }, 2000); // إخفاء الرسالة بعد 2 ثانية
+            }
+        });
+    </script>
+</body>
+</html>

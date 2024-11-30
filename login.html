@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        header nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 10px;
+        }
+
+        header nav ul li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #ffc107;
+        }
+
+        main {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .login-form {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-form h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-form button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .login-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .success-message {
+            background-color: #28a745;
+            color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.2rem;
+            display: none; /* مخفي بشكل افتراضي */
+            animation: fadeOut 2s forwards; /* الأنميشن لإخفاء الرسالة */
+        }
+
+        .error-message {
+            background-color: #dc3545;
+            color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.2rem;
+            display: none; /* مخفي بشكل افتراضي */
+        }
+
+        /* الأنميشن لإخفاء الرسالة */
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 0;
+                display: none;
+            }
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* تنسيق الأيقونة لعرض كلمة المرور */
+        .password-container {
+            position: relative;
+        }
+
+        .password-container span {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>موقع التقارير اليومية</h1>
+        <nav>
+            <ul>
+                <li><a href="signup.html">إنشاء حساب</a></li>
+                <li><a href="login.html">تسجيل الدخول</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="login-form">
+            <h2>تسجيل الدخول</h2>
+
+            <div class="success-message" id="successMessage">
+                تم تسجيل الدخول بنجاح!
+            </div>
+
+            <div class="error-message" id="errorMessage">
+                <p>هنالك خطأ في البريد الإلكتروني أو كلمة السر!</p>
+            </div>
+
+            <form id="loginForm">
+                <label for="email">البريد الإلكتروني</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="password">كلمة المرور</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" required>
+                    <span id="eyeIcon" onclick="togglePasswordVisibility()" style="cursor: pointer;">👁️</span>
+                </div>
+
+                <button type="submit">تسجيل الدخول</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 موقع التقارير اليومية</p>
+    </footer>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            // التحقق من البريد الإلكتروني
+            if (email !== "km5942070@gmail.com") {
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('errorMessage').innerText = 'هنالك خطأ في البريد الإلكتروني!';
+                setTimeout(function() {
+                    document.getElementById('errorMessage').style.display = 'none';
+                }, 2000);
+                return;
+            }
+
+            // التحقق من كلمة المرور
+            if (password !== "yourPassword") {
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('errorMessage').innerText = 'هنالك خطأ في كلمة السر!';
+                setTimeout(function() {
+                    document.getElementById('errorMessage').style.display = 'none';
+                }, 2000);
+                return;
+            }
+
+            // إذا كانت البيانات صحيحة
+            document.getElementById('successMessage').style.display = 'block';
+            setTimeout(function() {
+                document.getElementById('successMessage').style.display = 'none';
+                window.location.href = "dashboard.html"; // التوجيه إلى لوحة التحكم
+            }, 2000);
+        });
+
+        // إظهار أو إخفاء كلمة المرور
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById('password');
+            var eyeIcon = document.getElementById('eyeIcon');
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                eyeIcon.innerText = "🙈"; // تغيير الأيقونة
+            } else {
+                passwordField.type = "password";
+                eyeIcon.innerText = "👁️";
+            }
+        }
+    </script>
+</body>
+</html>

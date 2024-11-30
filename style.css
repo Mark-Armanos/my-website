@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main {
+    padding: 20px;
+}
+
+.latest-reports {
+    margin-bottom: 30px;
+}
+
+.latest-reports ul {
+    list-style-type: none;
+}
+
+.latest-reports ul li {
+    background-color: #fff;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.latest-reports ul li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+.upload-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.upload-section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.upload-section label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.upload-section input, .upload-section textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.upload-section button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.upload-section button:hover {
+    background-color: #45a049;
+}
